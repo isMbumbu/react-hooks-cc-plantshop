@@ -41,6 +41,27 @@
       "name": "Fiddle Leaf Fig",
       "image": "./images/fiddle-leaf-fig.jpg",
       "price": 55
+    },
+    {
+      "name": "Try",
+      "image": "./images/zz-plant.jpg",
+      "price": 20.9,
+      "inStock": true,
+      "id": 8
+    },
+    {
+      "name": "Try",
+      "image": "./images/zz-plant.jpg",
+      "price": 45,
+      "inStock": true,
+      "id": 9
+    },
+    {
+      "name": "",
+      "image": "",
+      "price": null,
+      "inStock": true,
+      "id": 10
     }
   ]
 }
