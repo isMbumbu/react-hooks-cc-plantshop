@@ -10,20 +10,22 @@ function NewPlantForm({ onAddPlant }) {
     const newPlant = { name, image, price: parseFloat(price), inStock: true };
 
     // Post new plant to the server
-    fetch("http://localhost:6001/plants", {
-      method: "POST",
+    fetch("https://api.jsonbin.io/v3/b/67310d29ad19ca34f8c79e95", {
+      method: "PUT", // Use PUT to update the entire record
       headers: {
         "Content-Type": "application/json",
+        "X-Master-Key": "$2a$10$xHindAX3fB2XeqxAwtMe0eL6Y3DkuHFK2mard9mYpXo298FkaiOj.",
       },
-      body: JSON.stringify(newPlant),
+      body: JSON.stringify({ plants: newPlant }), // Send the new plant
     })
       .then((response) => response.json())
       .then((data) => {
-        onAddPlant(data); // Add new plant to the local state
-        setName("");
+        onAddPlant(newPlant); // Update state in PlantPage with the new plant
+        setName(""); // Clear the form
         setImage("");
         setPrice("");
-      });
+      })
+      .catch((error) => console.error("Error adding new plant:", error));
   };
 
   return (
